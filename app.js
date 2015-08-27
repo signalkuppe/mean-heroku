@@ -1,30 +1,31 @@
 var express = require('express'), // express
-		mongoose = require('mongoose'), // mongoose wrapper per mongo
+		mongoose = require('mongoose'), // mongoose wrapper for mongo
 		bodyParser = require('body-parser'), // body parser middleware
-		app = express(), // l'app di express
-		mongoDev = 'mongodb://@localhost/arch',
-		mongoProd = process.env.MONGOLAB_URI,
+		app = express(), // express app
+		mongoDev = 'mongodb://@localhost/arch', // dev mongo url
+		mongoProd = process.env.MONGOLAB_URI, // prod mongo url (heroku env property)
 		mongoUrl =  process.env.NODE_ENV ? mongoProd : mongoDev;
 		connect = function () {
 		  var options = { server: { socketOptions: { keepAlive: 1 } } };
 		  mongoose.connect(mongoUrl, options);
 		},
-		ModelSchema = require('./server/models/model'), // schema d esempio di Mongoose
-		ModelRoutes = require('./server/routes/model'); // le routes del modello di esempio
-		ModelApi = require('./server/api/model'); // le api del modello di esempio
+		ModelSchema = require('./server/models/model'), // Mongoose example schema
+		ModelRoutes = require('./server/routes/model'); // model routes
+		ModelApi = require('./server/api/model'); // model api
 
-// Connetti to mongodb
+// Mongo connection
 connect();
-mongoose.connection.on('error', function(err) { // se fallisce segnala
+mongoose.connection.on('error', function(err) {
 	throw err;
 });
 mongoose.connection.on('disconnected', connect);
 mongoose.connection.on('open', function () {
-	console.info('connesso al database',mongoUrl);
+	console.info('connected to ',mongoUrl);
 });
 
-// usa body parser per accettare le POST
+// use body parser
 app.use(bodyParser.json())
+// static assets are found in /client dir
 app.use(express.static(__dirname + '/client'));
 
 // CRUD
@@ -38,5 +39,5 @@ app.get('/api/model/:limit?', ModelApi.list);
 
 
 
-// ascolta sulla porta...
+// listen on...
 app.listen(process.env.PORT || 3000);

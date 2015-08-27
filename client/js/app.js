@@ -27,10 +27,10 @@ app.config(['growlProvider','$provide', function(growlProvider,$provide)
 
 app.run(['$rootScope', '$location', function($rootScope, $location)
 {
-  // inizializzazione rootScope
-  $rootScope.appName = 'Nome applicazione'; //nome dell'app
+  // init rootScope
+  $rootScope.appName = 'Application name'; //app name
   $rootScope.active = function(path, strict)
-  { // funzione active per i links
+  { // active links in navbar
     return (strict ? $location.path() : $location.path().substr(0, path.length)) == path;
   };
 }]);

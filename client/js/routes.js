@@ -6,10 +6,10 @@ app.config(function($routeProvider)
       controller: 'home',
       templateUrl: '/html/views/home.html'
     })
-    .when('/esempio',
+    .when('/model',
     {
-      controller: 'esempio',
-      templateUrl: '/html/views/esempio.html'
+      controller: 'model',
+      templateUrl: '/html/views/model.html'
     })
     .otherwise(
     {

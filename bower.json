@@ -1,10 +1,10 @@
 {
-  "name": "architettura",
+  "name": "Application name",
   "version": "0.0.1",
   "authors": [
     "Matteo Leoni <leoni.matteo@gmail.com>"
   ],
-  "description": "architettura base",
+  "description": "sample mean architecture",
   "license": "MIT",
   "ignore": [
     "**/.*",

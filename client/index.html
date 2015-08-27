@@ -27,24 +27,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">
-              <img style="max-height:20px;display: inline-block;" src="/img/logo/apple-touch-icon.png" alt="{{appName}}" class="img-thumbnail"> {{appName}}
+            <a style="padding: 5px 15px;" class="navbar-brand" href="#/">
+              <img style="display: inline-block;" src="/img/logo/logo.png" alt="{{appName}}"> {{appName}}
             </a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li ng-class="{ active: active('/esempio',true) }"><a href="#/esempio">Esempio</a></li>
+              <li ng-class="{ active: active('/model',true) }"><a href="#/model">Model</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li id="loader" ng-show="loading"><a href=""><i class="fa fa-lg fa-cog fa-spin"></i></a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utente <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Azione</a></li>
-                </ul>
-              </li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -75,7 +69,7 @@
     <script src="/js/filters.js"></script><!-- angular filters -->
 
     <script src="/js/controllers/home.js"></script><!-- controller home -->
-    <script src="/js/controllers/esempio.js"></script><!-- controller esempio -->
+    <script src="/js/controllers/model.js"></script><!-- controller esempio -->
 
   </body>
 </html>

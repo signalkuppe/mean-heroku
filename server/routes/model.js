@@ -37,7 +37,6 @@ exports.update = function (req,res) {
       m.mdate = new Date();
 
   Model.findById(req.params.id, function (err, model) {
-      //update it
       model.update(m, { runValidators: true }, function (err) {
         if (err) {
             res.status(400).send(err);

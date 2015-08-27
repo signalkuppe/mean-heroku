@@ -1,0 +1,48 @@
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Sample controller</h1>
+			<p>Test
+				<strong>CRUD</strong> operations on a simple Mongoose schema</p>
+			<hr />
+			<div class="form-group">
+				<form ng-submit="submit()">
+					<label for="">Title field *</label>
+					<input type="text" class="form-control" ng-model="model.title">
+					<p class="help-block">This is our only filed <em>(required)</em></p>
+					<button type="submit" class="btn btn-primary">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" ng-show="models.length">
+		<div class="col-md-6 col-md-offset-3">
+			<hr />
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th class="col-sm-6">Title</th>
+            <th class="col-sm-3 text-center">Updated on</th>
+						<th class="col-sm-3 text-right">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="m in models track by m._id">
+						<td>
+            	<input type="text" class="form-control" ng-model="m.title">
+            </td>
+            <td class="text-center">
+              {{m.mdate | date:'dd/MM/yy'}} alle {{m.mdate | date:'HH:mm'}}
+            </td>
+						<td class="text-right">
+							<a href="" class="btn btn-default" ng-click="update(m)">Update</a>
+							<a href="" class="btn btn-danger" ng-click="delete(m)">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
