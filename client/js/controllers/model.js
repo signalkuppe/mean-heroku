@@ -9,7 +9,6 @@ app.controller('model', ['$scope', '$http', 'growl', function($scope, $http, gro
 					$scope.models.push(resp.data)
 				},
 				function(err) {
-					// called asynchronously if an error occurs
 					growl.error('Error while saving the model, check your data and retry');
 				}
 			);
