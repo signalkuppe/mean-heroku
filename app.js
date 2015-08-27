@@ -1,4 +1,4 @@
-console.log(process.env.NPM_CONFIG_PRODUCTION)
+console.log(process)
 
 var express = require('express'), // express
 		mongoose = require('mongoose'), // mongoose wrapper per mongo
