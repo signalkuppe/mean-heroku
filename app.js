@@ -1,4 +1,4 @@
-console.log(process.env)
+console.log(process.env.NODE_ENV)
 
 var express = require('express'), // express
 		mongoose = require('mongoose'), // mongoose wrapper per mongo
