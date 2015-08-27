@@ -1,3 +1,5 @@
+console.log(process.env.NPM_CONFIG_PRODUCTION)
+
 var express = require('express'), // express
 		mongoose = require('mongoose'), // mongoose wrapper per mongo
 		bodyParser = require('body-parser'), // body parser middleware
