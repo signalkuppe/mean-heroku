@@ -1,5 +1,3 @@
-console.log(process.env.NODE_ENV)
-
 var express = require('express'), // express
 		mongoose = require('mongoose'), // mongoose wrapper per mongo
 		bodyParser = require('body-parser'), // body parser middleware
@@ -7,13 +5,17 @@ var express = require('express'), // express
   	path = require('path'), // il modulo path di node,
 		databaseName = 'arch', // il database dell'app
 		databaseHost = 'localhost', // l'host del db,
+		mongoDev = 'mongodb://@localhost/arch',
+		mongoProd = 'mongodb://heroku_w16xlmt2:8gssbg5gdq0jsfcik56kkdncps@ds035703.mongolab.com:35703/heroku_w16xlmt2',
+		mongoUrl =  process.env.NODE_ENV === true ? mongoProd : mongoDev;
 		connect = function () {
 		  var options = { server: { socketOptions: { keepAlive: 1 } } };
-		  mongoose.connect('mongodb://@'+databaseHost+'/'+databaseName, options);
+		  mongoose.connect(mongoUrl, options);
 		},
 		ModelSchema = require('./server/models/model'), // schema d esempio di Mongoose
 		ModelRoutes = require('./server/routes/model'); // le routes del modello di esempio
 
+console.log('mongo url',mongoUrl)
 // Connetti to mongodb
 connect();
 mongoose.connection.on('error', function(err) { // se fallisce segnala
