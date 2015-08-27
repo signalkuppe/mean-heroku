@@ -2,11 +2,10 @@ var mongoose = require('mongoose'),
     Model = mongoose.model('Model');
 
 
-exports.save= function (req,res) {
+exports.create= function (req,res) {
 
   var model = new Model(req.body);
 
-   // save the bear and check for errors
    model.save(function (err) {
        if (err) {
         res.status(400).send(err);
@@ -19,7 +18,7 @@ exports.save= function (req,res) {
 
 };
 
-exports.get= function (req,res) {
+exports.read= function (req,res) {
 
   Model.find(function(err, result) {
       if (err) {
@@ -32,7 +31,7 @@ exports.get= function (req,res) {
 
 };
 
-exports.put = function (req,res) {
+exports.update = function (req,res) {
 
   var m = req.body;
       m.mdate = new Date();
