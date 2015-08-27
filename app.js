@@ -7,7 +7,7 @@ var express = require('express'), // express
 		databaseHost = 'localhost', // l'host del db,
 		mongoDev = 'mongodb://@localhost/arch',
 		mongoProd = 'mongodb://heroku_w16xlmt2:8gssbg5gdq0jsfcik56kkdncps@ds035703.mongolab.com:35703/heroku_w16xlmt2',
-		mongoUrl =  process.env.NODE_ENV === true ? mongoProd : mongoDev;
+		mongoUrl =  process.env.NODE_ENV ? mongoProd : mongoDev;
 		connect = function () {
 		  var options = { server: { socketOptions: { keepAlive: 1 } } };
 		  mongoose.connect(mongoUrl, options);
@@ -15,7 +15,7 @@ var express = require('express'), // express
 		ModelSchema = require('./server/models/model'), // schema d esempio di Mongoose
 		ModelRoutes = require('./server/routes/model'); // le routes del modello di esempio
 
-console.log('mongo url',mongoUrl)
+console.log('mongo url@@@@@@@@@@@@@@@@@@@@@@@@ ->',mongoUrl)
 // Connetti to mongodb
 connect();
 mongoose.connection.on('error', function(err) { // se fallisce segnala
